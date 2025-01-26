@@ -27,6 +27,7 @@
             {
                 Console.WriteLine("Ошибка ввода, попробуйте еще раз");
             }
+
             Console.Clear();
             for (double i = a1; a1 + shag <= a2 + shag; a1 += shag)
             {
