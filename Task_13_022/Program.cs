@@ -4,31 +4,73 @@
     {
         static void Main(string[] args)
         {
+        
+            // Вот наши данные про питомца
+            public string Name;    // Как зовут
+            public string Type;    // Кот или собака
+            public string Age;     // Сколько лет
+            public string Weight;  // Сколько весит
+            public string Health;  // Здоров или нет
+             
+            // Конструктор пустой чтобы можно было потом заполнить
+            public Pet()
+            {
+            }
 
-            // Первая кошка
-            Cat cat1 = new Cat();
-            cat1.Name = "Сима";
-            cat1.Age = 3;
-            cat1.Weight = 5.5;
-            cat1.HealthStatus = "Здорова";
+            // Метод чтобы показать информацию
+            public string GetInfo()
+            {
+                string info = "";
+                info += "Имя: " + Name + "\n";
+                info += "Вид: " + Type + "\n";
+                info += "Возраст: " + (Age ?? "неизвестен") + "\n";
+                info += "Вес: " + (Weight ?? "неизвестен") + "\n";
+                info += "Здоровье: " + Health;
+                return info;
+            }
 
-            Console.WriteLine(cat1.GetCatInfo());
-            Console.WriteLine();
+            // Поменять вес
+            public void ChangeWeight(string newWeight)
+            {
+                Weight = newWeight;
+                Console.WriteLine("Новый вес: " + newWeight);
+            }
 
-            // Изменяем параметры
-            cat1.ChangeWeight(7.3);
-            cat1.ChangeHealth("Не здорова.Требуется вакцинация");
-            Console.WriteLine("\n" + cat1.GetCatInfo());
-            Console.WriteLine();
+            // Поменять здоровье
+            public void ChangeHealth(string newHealth)
+            {
+                Health = newHealth;
+                Console.WriteLine("Новое состояние: " + newHealth);
+            }
+         }
 
-            // Вторая кошка с неполными данными
-            Cat cat2 = new Cat();
-            cat2.Name = "Муза";
-            cat2.HealthStatus = "Здорова";
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                // Первый питомец
+                Pet cat = new Pet();
+                cat.Name = "Сима";
+                cat.Type = "Кошка";
+                cat.Age = "3";
+                cat.Weight = "5.4";
+                cat.Health = "Здорова";
 
-            Console.WriteLine(cat2.GetCatInfo());
+                Console.WriteLine(cat.GetInfo());
+                Console.WriteLine();
+
+                cat.ChangeWeight("7.2");
+                cat.ChangeHealth("Требуется вакцинация");
+                Console.WriteLine(cat.GetInfo());
+                Console.WriteLine();
+
+                // Второй питомец с пропущенными данными
+                Pet dog = new Pet();
+                dog.Name = "Багира";
+                dog.Type = "Собака";
+                dog.Health = "Здорова";
+
+                Console.WriteLine(dog.GetInfo());
+            }
         }
     }
-}
-
-       
