@@ -1,0 +1,28 @@
+﻿<Window x:Class="Task_39_02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Список покупок" Height="500" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="66*"/>
+            <ColumnDefinition Width="119*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="5,5,5,5" Grid.ColumnSpan="3">
+            <Label Content="Новый продукт:" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtNewItem" Width="200" Margin="5"/>
+            <Button Content="Добавить" Click="AddButton_Click" Padding="5" RenderTransformOrigin="-0.269,0.58" Width="80"/>
+        </StackPanel>
+        <ListBox x:Name="lstItems" Grid.Row="2" Margin="5,399,5,19" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <Button Content="Сохранить список" Grid.Row="2" Margin="144,399,0,19" Click="SaveButton_Click" HorizontalAlignment="Left" Padding="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+    </Grid>
+</Window>
